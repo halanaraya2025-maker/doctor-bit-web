@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Doctor Bit — soporte técnico profesional para tu PC, redes y dispositivos." />
-  <title>Doctor Bit | Soporte técnico</title>
+  <meta name="description" content="Doctor Bit — informática y computación en Coquimbo: limpieza, formateo, respaldo, SSD/RAM y más." />
+  <title>Doctor Bit | Informática y computación · Coquimbo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
@@ -79,6 +79,21 @@
       font-weight: 700;
       font-size: 1.15rem;
       letter-spacing: -0.02em;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      line-height: 1.15;
+    }
+
+    .logo-tagline {
+      font-weight: 500;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
     }
 
     .logo-mark {
@@ -255,8 +270,18 @@
       gap: 1rem;
     }
 
-    @media (min-width: 640px) {
-      .grid-3 {
+    .grid-services {
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 560px) {
+      .grid-services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .grid-services {
         grid-template-columns: repeat(3, 1fr);
       }
     }
@@ -366,12 +391,15 @@
   <header>
     <div class="logo">
       <div class="logo-mark" aria-hidden="true">+</div>
-      <span>Doctor Bit</span>
+      <div class="logo-text">
+        <span>Doctor Bit</span>
+        <span class="logo-tagline">Informática y computación</span>
+      </div>
     </div>
     <nav>
       <a href="#servicios">Servicios</a>
       <a href="#contacto">Contacto</a>
-      <a class="btn btn-primary" href="#contacto">Pedir ayuda</a>
+      <a class="btn btn-primary" href="https://wa.me/56958036551" target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </nav>
   </header>
 
@@ -380,67 +408,79 @@
       <div>
         <h1>Tu equipo en <span>buenas manos</span></h1>
         <p class="lead">
-          Soporte técnico claro y cercano: desde reparar tu PC hasta configurar redes,
-          copias de seguridad y teletrabajo sin dolores de cabeza.
+          Servicio técnico en <strong style="color: var(--text); font-weight: 600">Coquimbo</strong>:
+          notebooks y PC, mantención, respaldo de datos y mejoras de hardware con trato directo y claro.
         </p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#contacto">Solicitar soporte</a>
-          <a class="btn btn-ghost" href="#servicios">Ver qué hacemos</a>
+          <a class="btn btn-primary" href="https://wa.me/56958036551" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
         </div>
       </div>
-      <aside class="hero-card" aria-label="Resumen del servicio">
-        <h3>Disponibilidad orientativa</h3>
+      <aside class="hero-card" aria-label="Ubicación y contacto">
+        <h3>Coquimbo</h3>
         <div class="stat-row">
-          <span class="stat">Respuesta</span>
-          <span>Según canal (WhatsApp / correo)</span>
+          <span class="stat">Dirección</span>
+          <span>Pasaje Rovereto 1091</span>
         </div>
         <div class="stat-row">
-          <span class="stat">Modalidad</span>
-          <span>Remoto y presencial*</span>
+          <span class="stat">WhatsApp</span>
+          <span>9 5803 6551</span>
         </div>
         <div class="stat-row">
-          <span class="stat">Zona</span>
-          <span>Indica tu ciudad al contactar</span>
+          <span class="stat">Cómo llegar</span>
+          <span><a href="https://www.google.com/maps/search/?api=1&amp;query=Pasaje+Rovereto+1091,+Coquimbo,+Chile" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none">Abrir en Google Maps</a></span>
         </div>
-        <p class="form-note" style="margin-top: 1rem">* Ajusta este texto a cómo trabajas en la vida real.</p>
       </aside>
     </div>
 
     <section id="servicios">
       <h2>Servicios</h2>
-      <p class="sub">Puedes adaptar esta lista a lo que realmente ofreces.</p>
-      <div class="grid grid-3">
+      <p class="sub">Lo que ofrecemos para tu notebook o PC de escritorio.</p>
+      <div class="grid grid-services">
         <article class="card">
-          <strong>PC y portátiles</strong>
-          <p>Lentitud, virus, pantallas, discos, actualizaciones de Windows y mantenimiento.</p>
+          <strong>Limpieza y mantención</strong>
+          <p>Polvo, ventilación, optimización y revisión general para alargar la vida del equipo.</p>
         </article>
         <article class="card">
-          <strong>Red e internet</strong>
-          <p>Wi‑Fi, routers, cables, impresoras en red y problemas de conexión.</p>
+          <strong>Formateo de notebooks y PC</strong>
+          <p>Reinstalación del sistema, drivers y dejarlo listo para trabajar o estudiar.</p>
         </article>
         <article class="card">
-          <strong>Rescate de datos</strong>
-          <p>Copias, recuperación cuando sea posible y consejos para no volver a perder archivos.</p>
+          <strong>Instalación de programas</strong>
+          <p>Suite ofimática, antivirus, utilidades y lo que necesites de forma ordenada.</p>
+        </article>
+        <article class="card">
+          <strong>Respaldo de datos</strong>
+          <p>Copia de archivos importantes antes de formateos o cambios de disco.</p>
+        </article>
+        <article class="card">
+          <strong>Cambio de RAM y disco SSD</strong>
+          <p>Mejora de velocidad y capacidad; asesoría según tu modelo y uso.</p>
         </article>
       </div>
     </section>
 
     <section id="contacto">
       <h2>Contacto</h2>
-      <p class="sub">Deja aquí los datos reales: WhatsApp, teléfono, correo y horario.</p>
+      <p class="sub">Escríbenos o visítanos en Coquimbo.</p>
       <div class="contact-wrap">
         <div class="card">
-          <p><strong style="color: var(--text)">Ejemplo — reemplázalo</strong></p>
+          <p><strong style="color: var(--text)">Doctor Bit</strong></p>
           <p style="margin-top: 0.75rem">
-            WhatsApp: <span style="color: var(--accent)">+XX XXX XXX XXX</span><br />
-            Email: <span style="color: var(--accent)">hola@doctorbit.es</span><br />
-            Horario: lunes a viernes, 9:00–18:00
+            <strong>Ubicación:</strong> Pasaje Rovereto 1091, Coquimbo<br />
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Pasaje+Rovereto+1091,+Coquimbo,+Chile" target="_blank" rel="noopener noreferrer" style="color: var(--accent)">Ver en mapa</a>
+          </p>
+          <p style="margin-top: 0.75rem">
+            <strong>WhatsApp:</strong>
+            <a href="https://wa.me/56958036551" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none">9 5803 6551</a>
+          </p>
+          <p style="margin-top: 1rem">
+            <a class="btn btn-primary" href="https://wa.me/56958036551" target="_blank" rel="noopener noreferrer">Abrir chat en WhatsApp</a>
           </p>
         </div>
         <div class="card">
           <p class="form-note" style="margin-bottom: 0.75rem">
-            Este formulario no envía correos solo: conecta Formspree, Netlify Forms o tu backend
-            cuando quieras recibir mensajes de verdad.
+            Si más adelante quieres recibir mensajes desde la web, se puede conectar este formulario a un servicio de correo (Formspree, etc.). Mientras tanto, usa WhatsApp para una respuesta rápida.
           </p>
           <form action="#" method="post">
             <div>
@@ -448,15 +488,15 @@
               <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" />
             </div>
             <div>
-              <label for="email">Email o teléfono</label>
-              <input id="email" name="email" type="text" autocomplete="email" placeholder="Para responderte" />
+              <label for="email">Teléfono o correo</label>
+              <input id="email" name="email" type="text" autocomplete="tel" placeholder="Para responderte" />
             </div>
             <div>
-              <label for="mensaje">Describe el problema</label>
-              <textarea id="mensaje" name="mensaje" placeholder="Equipo, síntomas, urgencia…"></textarea>
+              <label for="mensaje">Describe lo que necesitas</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Equipo (notebook/PC), síntomas, urgencia…"></textarea>
             </div>
-            <button type="button" class="btn btn-primary" style="width: fit-content">
-              Enviar (configura el envío antes)
+            <button type="button" class="btn btn-ghost" style="width: fit-content">
+              Recordatorio: usa WhatsApp para enviar el mensaje
             </button>
           </form>
         </div>
