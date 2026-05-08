@@ -58,6 +58,8 @@
       right: -120px;
       pointer-events: none;
       z-index: 0;
+      animation: glow-drift 18s ease-in-out infinite;
+      will-change: transform;
     }
 
     header {
@@ -119,11 +121,14 @@
       color: var(--muted);
       text-decoration: none;
       font-size: 0.95rem;
-      transition: color 0.2s;
+      transition:
+        color 0.22s ease,
+        transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     nav a:hover {
       color: var(--text);
+      transform: translateY(-1px);
     }
 
     .btn {
@@ -137,7 +142,11 @@
       text-decoration: none;
       border: none;
       cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.2s;
+      transition:
+        transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.22s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
     }
 
     .btn-primary {
@@ -159,6 +168,7 @@
 
     .btn-ghost:hover {
       border-color: var(--muted);
+      transform: translateY(-1px);
     }
 
     main {
@@ -291,11 +301,17 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1.35rem;
-      transition: border-color 0.2s;
+      transition:
+        border-color 0.25s ease,
+        transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.28s ease,
+        opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .card:hover {
       border-color: rgba(45, 212, 191, 0.35);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
     }
 
     .card strong {
@@ -382,13 +398,216 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    @keyframes fade-rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes logo-nudge {
+      from {
+        opacity: 0;
+        transform: scale(0.88) rotate(-6deg);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    @keyframes glow-drift {
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+      40% {
+        transform: translate(-24px, 14px) scale(1.06);
+      }
+      70% {
+        transform: translate(12px, -10px) scale(0.98);
+      }
+    }
+
+    .anim-header {
+      opacity: 0;
+      animation: fade-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .anim-header .logo-mark {
+      animation: logo-nudge 0.55s cubic-bezier(0.34, 1.2, 0.64, 1) 0.08s backwards;
+    }
+
+    .anim-hero-copy > * {
+      opacity: 0;
+      animation: fade-rise 0.68s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .anim-hero-copy h1 {
+      animation-delay: 0.1s;
+    }
+
+    .anim-hero-copy .lead {
+      animation-delay: 0.22s;
+    }
+
+    .anim-hero-copy .hero-cta {
+      animation-delay: 0.34s;
+    }
+
+    .anim-hero-aside {
+      opacity: 0;
+      animation: fade-rise 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+    }
+
+    #servicios h2,
+    #servicios .sub {
+      opacity: 0;
+      transform: translateY(16px);
+      transition:
+        opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #servicios .grid-services .card {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+
+    #servicios.is-visible h2,
+    #servicios.is-visible .sub {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #servicios.is-visible .sub {
+      transition-delay: 0.08s;
+    }
+
+    #servicios.is-visible .grid-services .card:nth-child(1) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.1s;
+    }
+
+    #servicios.is-visible .grid-services .card:nth-child(2) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.18s;
+    }
+
+    #servicios.is-visible .grid-services .card:nth-child(3) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.26s;
+    }
+
+    #servicios.is-visible .grid-services .card:nth-child(4) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.34s;
+    }
+
+    #servicios.is-visible .grid-services .card:nth-child(5) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.42s;
+    }
+
+    #contacto h2,
+    #contacto .sub {
+      opacity: 0;
+      transform: translateY(16px);
+      transition:
+        opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #contacto .contact-wrap .card {
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.25s ease,
+        box-shadow 0.28s ease;
+    }
+
+    #contacto.is-visible h2,
+    #contacto.is-visible .sub {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #contacto.is-visible .sub {
+      transition-delay: 0.08s;
+    }
+
+    #contacto.is-visible .contact-wrap .card:nth-child(1) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.12s;
+    }
+
+    #contacto.is-visible .contact-wrap .card:nth-child(2) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.22s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .glow {
+        animation: none;
+      }
+
+      .anim-header,
+      .anim-header .logo-mark,
+      .anim-hero-copy > *,
+      .anim-hero-aside {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      #servicios h2,
+      #servicios .sub,
+      #servicios .grid-services .card,
+      #contacto h2,
+      #contacto .sub,
+      #contacto .contact-wrap .card {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+
+      .card:hover {
+        transform: none;
+      }
+
+      nav a:hover {
+        transform: none;
+      }
+
+      .btn-ghost:hover {
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
   <div class="glow" aria-hidden="true"></div>
 
-  <header>
+  <header class="anim-header">
     <div class="logo">
       <div class="logo-mark" aria-hidden="true">+</div>
       <div class="logo-text">
@@ -405,7 +624,7 @@
 
   <main>
     <div class="hero">
-      <div>
+      <div class="anim-hero-copy">
         <h1>Tu equipo en <span>buenas manos</span></h1>
         <p class="lead">
           Servicio técnico en <strong style="color: var(--text); font-weight: 600">Coquimbo</strong>:
@@ -416,7 +635,7 @@
           <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
         </div>
       </div>
-      <aside class="hero-card" aria-label="Ubicación y contacto">
+      <aside class="hero-card anim-hero-aside" aria-label="Ubicación y contacto">
         <h3>Coquimbo</h3>
         <div class="stat-row">
           <span class="stat">Dirección</span>
@@ -433,7 +652,7 @@
       </aside>
     </div>
 
-    <section id="servicios">
+    <section id="servicios" class="js-reveal">
       <h2>Servicios</h2>
       <p class="sub">Lo que ofrecemos para tu notebook o PC de escritorio.</p>
       <div class="grid grid-services">
@@ -460,7 +679,7 @@
       </div>
     </section>
 
-    <section id="contacto">
+    <section id="contacto" class="js-reveal">
       <h2>Contacto</h2>
       <p class="sub">Escríbenos o visítanos en Coquimbo.</p>
       <div class="contact-wrap">
@@ -509,7 +728,35 @@
     <span><a href="#contacto">Volver arriba</a></span>
   </footer>
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    (function () {
+      document.getElementById("y").textContent = new Date().getFullYear();
+
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var sections = document.querySelectorAll("#servicios, #contacto");
+
+      if (reduce || !window.IntersectionObserver) {
+        sections.forEach(function (s) {
+          s.classList.add("is-visible");
+        });
+        return;
+      }
+
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -28px 0px" }
+      );
+
+      sections.forEach(function (el) {
+        io.observe(el);
+      });
+    })();
   </script>
 </body>
 </html>
